@@ -13,7 +13,7 @@ module CucumberStatistics
     #----------------------------------------------------
     # Step callbacks
     #----------------------------------------------------
-    def before_test_step(step)
+    def before_step(step)
       @step_start_time = Time.now
     end
 
@@ -56,7 +56,7 @@ module CucumberStatistics
 
       # gather unused steps
       @step_mother.unmatched_step_definitions.each do |step_definition|
-        @unused_steps.record step_definition.regexp_source, step_definition.location.to_s
+        @unused_steps.record step_definition.regexp_source, step_definition.file_colon_line
       end
 
       @step_statistics.calculate

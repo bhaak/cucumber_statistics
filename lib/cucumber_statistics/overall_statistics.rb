@@ -2,7 +2,7 @@ require 'virtus'
 
 module CucumberStatistics
   class OverallStatistics
-    include Virtus.model
+    include Virtus
 
     attribute :start_time, Time
     attribute :end_time, Time
